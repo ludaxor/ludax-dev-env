@@ -1,0 +1,19 @@
+---
+#in order to start it: ansible-playbook -i hosts bootstrap.yml -c docker
+#The default password is ubuntu for every ubuntu
+#We must uncheck from ansible.cfg the line host_key_checking = False
+#In order to work correctly we must install on the host provisioner machine sshpas: yum install sshpass
+
+- name: playbook to bootstrap managed centos nodes
+  hosts: docker
+  gather_facts: False
+  
+  tasks:
+    - name: Install Python
+      raw: test -e /usr/bin/python || (apt-get update && apt-get install -y python)
+      
+      
+    - name: ssh key-based authorized login
+      authorized_key: user=root
+                      exclusive=no
+                      key="{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

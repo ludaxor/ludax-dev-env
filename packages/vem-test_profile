@@ -1,0 +1,16 @@
+alias hilfe='echo -e "This help             : \033[32mhilfe\033[0m\nChange to home dir    : \033[32mvem-test_home\033[0m\nJboss commands        : \033[32mJboss_start Jboss_stop Jboss_restart\033[0m\nChange to log dirs    : \033[32mJboss_logs Jboss_vem_logs  \033[0m
+JBoss health status   : \033[32mJboss_vem_health  \033[0m
+Additional commands   : \033[32mJboss_status DB_con_check Webmon_stop Webmon_start Log_cleanup\033[0m"'
+hilfe
+alias vem-test_home='cd /LUDAX_Automation; pwd'
+alias Jboss_start='/etc/init.d/jboss7D-test-vem start'
+alias Jboss_stop='/etc/init.d/jboss7D-test-vem stop'
+alias Jboss_restart='Jboss_stop;Jboss_start'
+alias Jboss_status='/root/scripts/checks/vem-test.sh'
+alias DB_con_check='/root/scripts/checks/vem-test-dbcheck.sh'
+alias Webmon_stop='/root/scripts/webmon.sh stop vemtest'
+alias Webmon_start='/root/scripts/webmon.sh start vemtest'
+alias Jboss_logs='cd /LUDAX_Automation; pwd; ls -alt | head -15'
+alias Jboss_vem_logs='cd /LUDAX_Automation; pwd; ls -alt | head -15'
+alias Jboss_vem_health='/root/scripts/checks/health_vem_test_vem.sh'
+

@@ -1,7 +1,7 @@
 #!/bin/bash -xv
 
 export AUTO="/LUDAX_Automation"
-export EIS="EISTools_SM-1.0.144.1.2-20190705090342.x86_64.rpm"
+#export EIS="EISTools_SM-1.0.144.1.2-20190705090342.x86_64.rpm"
 #export WEBMONG="WebMonG_JAVAatHP-2.1.0.61.0.0.1-20181204102949.i386.tar.gz"
 
 yum update -y
@@ -79,15 +79,15 @@ yum install -y git
 
 
 
-rpm -qa |grep EIS
-if [ $? -eq 0 ]
-    then
-	    echo -e "\e[00;32m#################################\e[00m"
-        echo -e "\e[00;32m EisTools is installed\e[00m"
-        echo -e "\e[00;32m#################################\e[00m"
-	else
-rpm -ivh /vagrant/packages/$EIS
-fi
+#rpm -qa |grep EIS
+#if [ $? -eq 0 ]
+#    then
+#	    echo -e "\e[00;32m#################################\e[00m"
+#        echo -e "\e[00;32m EisTools is installed\e[00m"
+#        echo -e "\e[00;32m#################################\e[00m"
+#	else
+#rpm -ivh /vagrant/packages/$EIS
+#fi
 
 if [ -d "${AUTO}" ]
  then
@@ -113,14 +113,14 @@ chown -R vagrant: $AUTO
 
 ##Copy the necessary files into the servers folder $AUTO
 
-if [ -f $AUTO/$EIS ]
-   then
-    	echo -e "\e[00;32m#################################\e[00m"
-        echo -e "\e[00;32m $EIS exists in $AUTO\e[00m"
-        echo -e "\e[00;32m#################################\e[00m"
-   else
-        cp /vagrant/packages/$EIS $AUTO
-fi
+#if [ -f $AUTO/$EIS ]
+#   then
+#    	echo -e "\e[00;32m#################################\e[00m"
+#        echo -e "\e[00;32m $EIS exists in $AUTO\e[00m"
+#        echo -e "\e[00;32m#################################\e[00m"
+#   else
+#        cp /vagrant/packages/$EIS $AUTO
+#fi
 
 
 #if [ -f $AUTO/$WEBMONG ]
